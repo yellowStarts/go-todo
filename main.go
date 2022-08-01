@@ -15,7 +15,7 @@ func main() {
 
 	// 测试路由
 	api.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("App running")
+		return c.SendString("App running aaa bbbb ffff")
 	})
 	log.Fatal(app.Listen(":5000"))
 }

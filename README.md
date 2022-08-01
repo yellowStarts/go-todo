@@ -8,3 +8,11 @@
 ```
 $ make run
 ```
+启动 docker 应用:
+```
+$ make up
+```
+停止 docker 应用:
+```
+$ make down
+```
