@@ -1,6 +1,19 @@
 version: "3.7"
 
 services:
+  go-todo-db:
+    container_name: go-todo-db
+    image: postgres
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - go-todo-network
   go-todo:
     container_name: go-todo
     image: go-todo:dev
@@ -14,6 +27,10 @@ services:
       - "2345:2345"
     networks:
       - go-todo-network
+
+volumes:
+  postgres-db:
+
 
 networks:
   go-todo-network:
